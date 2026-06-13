@@ -1,0 +1,18 @@
+---
+export interface Props {
+  variant?: 'default' | 'feature' | 'ghost';
+  class?: string;
+}
+
+const { variant = 'default', class: className } = Astro.props;
+
+const variants: Record<string, string> = {
+  default: 'bg-white border border-neutral-200',
+  feature: 'bg-white border border-neutral-200',
+  ghost: 'bg-neutral-100 border-none',
+};
+---
+
+<div class={`rounded-xl p-6 ${variants[variant]} ${className ?? ''}`}>
+  <slot />
+</div>

@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('education', ({ data }) => data.published !== false);
+  return entries.map((entry) => ({
+    params: { slug: entry.data.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<BaseLayout title={entry.data.title} description={entry.data.description}>
+  <section class="hero-padding bg-neutral-950 text-white">
+    <div class="container-site text-center">
+      <p class="text-body-sm font-semibold text-brand-gold uppercase tracking-wider mb-3">{entry.data.level}</p>
+      <h1 class="text-display-lg font-semibold mb-6">{entry.data.title}</h1>
+      <p class="text-body text-neutral-400 max-w-2xl mx-auto leading-relaxed">{entry.data.description}</p>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container-site max-w-3xl">
+      <div class="prose max-w-none">
+        <Content />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

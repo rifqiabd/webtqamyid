@@ -1,0 +1,91 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../config';
+---
+
+<BaseLayout title="Unit Pendidikan" description="Informasi lengkap tentang Pondok Pesantren, MTs, dan SMK Thibbil Qulub Assimbani.">
+  <section class="hero-padding bg-neutral-950 text-white">
+    <div class="container-site text-center">
+      <p class="text-body-sm font-semibold text-brand-gold uppercase tracking-wider mb-3">Unit Pendidikan</p>
+      <h1 class="text-display-lg font-semibold mb-6">Jenjang Pendidikan</h1>
+      <p class="text-body text-neutral-400 max-w-2xl mx-auto leading-relaxed">
+        Tiga jenjang pendidikan dalam satu naungan pondok pesantren.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container-site">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div class="bg-white rounded-xl border border-neutral-200 overflow-hidden">
+          <div class="h-48 bg-gradient-to-br from-brand-green to-brand-green-dark flex items-center justify-center">
+            <h3 class="text-heading-2 font-semibold text-white">Pondok<br />Pesantren</h3>
+          </div>
+          <div class="p-6">
+            <p class="text-body-sm text-brand-green font-semibold mb-2">Pesantren</p>
+            <p class="text-body text-neutral-600 leading-relaxed mb-6">
+              Program kepesantrenan dengan fokus pada tahfidz Al-Quran, kajian kitab kuning, dan pembentukan karakter islami yang kokoh.
+            </p>
+            <ul class="space-y-2 mb-6">
+              <li class="text-body-sm text-neutral-600 flex gap-2">
+                <span class="text-brand-green">•</span> Tahfidz Al-Quran 30 Juz
+              </li>
+              <li class="text-body-sm text-neutral-600 flex gap-2">
+                <span class="text-brand-green">•</span> Kajian Kitab Kuning
+              </li>
+              <li class="text-body-sm text-neutral-600 flex gap-2">
+                <span class="text-brand-green">•</span> Bahasa Arab Intensif
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl border border-neutral-200 overflow-hidden">
+          <div class="h-48 bg-gradient-to-br from-brand-gold to-brand-gold-dark flex items-center justify-center">
+            <h3 class="text-heading-2 font-semibold text-white">MTs<br />Thibbil Qulub</h3>
+          </div>
+          <div class="p-6">
+            <p class="text-body-sm text-brand-green font-semibold mb-2">MTs / SMP</p>
+            <p class="text-body text-neutral-600 leading-relaxed mb-6">
+              Madrasah Tsanawiyah dengan kurikulum integratif yang memadukan ilmu agama dan pengetahuan umum secara seimbang.
+            </p>
+            <ul class="space-y-2 mb-6">
+              <li class="text-body-sm text-neutral-600 flex gap-2">
+                <span class="text-brand-green">•</span> Kurikulum Merdeka + Pesantren
+              </li>
+              <li class="text-body-sm text-neutral-600 flex gap-2">
+                <span class="text-brand-green">•</span> Ekstrakurikuler Islami
+              </li>
+              <li class="text-body-sm text-neutral-600 flex gap-2">
+                <span class="text-brand-green">•</span> Pembinaan Karakter
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl border border-neutral-200 overflow-hidden">
+          <div class="h-48 bg-gradient-to-br from-brand-green-dark to-neutral-950 flex items-center justify-center">
+            <h3 class="text-heading-2 font-semibold text-white">SMK<br />Thibbil Qulub</h3>
+          </div>
+          <div class="p-6">
+            <p class="text-body-sm text-brand-green font-semibold mb-2">SMK / SMA</p>
+            <p class="text-body text-neutral-600 leading-relaxed mb-6">
+              Sekolah Menengah Kejuruan dengan kompetensi Teknologi Informasi dan keterampilan abad 21.
+            </p>
+            <ul class="space-y-2 mb-6">
+              <li class="text-body-sm text-neutral-600 flex gap-2">
+                <span class="text-brand-green">•</span> Jurusan Teknologi Informasi
+              </li>
+              <li class="text-body-sm text-neutral-600 flex gap-2">
+                <span class="text-brand-green">•</span> Sertifikasi Kompetensi
+              </li>
+              <li class="text-body-sm text-neutral-600 flex gap-2">
+                <span class="text-brand-green">•</span> Praktik Industri
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

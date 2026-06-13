@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const newsEntries = await getCollection('news', ({ data }) => data.published !== false);
+  return newsEntries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<BaseLayout title={entry.data.title} description={entry.data.description}>
+  <article class="section-padding">
+    <div class="container-site max-w-3xl">
+      <p class="text-body-sm text-brand-green font-semibold mb-2">
+        {entry.data.date.toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' })}
+      </p>
+      <h1 class="text-display-lg font-semibold text-neutral-800 mb-6">{entry.data.title}</h1>
+      <p class="text-body-lg text-neutral-600 mb-8">{entry.data.description}</p>
+      <div class="prose max-w-none">
+        <Content />
+      </div>
+    </div>
+  </article>
+</BaseLayout>

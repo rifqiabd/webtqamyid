@@ -1,0 +1,113 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import Button from '../components/ui/Button.astro';
+
+const allGallery = await getCollection('gallery', ({ data }) => data.published !== false);
+allGallery.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const categories = ['all', 'activities', 'facilities', 'events'];
+const categoryLabels: Record<string, string> = {
+  all: 'Semua',
+  activities: 'Kegiatan',
+  facilities: 'Fasilitas',
+  events: 'Acara',
+};
+---
+
+<BaseLayout title="Galeri" description="Galeri foto Pondok Pesantren Thibbil Qulub Assimbani.">
+  <section class="hero-padding bg-neutral-950 text-white">
+    <div class="container-site text-center">
+      <p class="text-body-sm font-semibold text-brand-gold uppercase tracking-wider mb-3">Galeri</p>
+      <h1 class="text-display-lg font-semibold mb-6">Galeri Foto</h1>
+      <p class="text-body text-neutral-400 max-w-2xl mx-auto leading-relaxed">
+        Dokumentasi kegiatan, fasilitas, dan acara di lingkungan Pondok Pesantren Thibbil Qulub Assimbani.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container-site">
+      <!-- Filter -->
+      <div class="flex flex-wrap gap-2 mb-8">
+        {categories.map((cat) => (
+          <button
+            class="px-4 py-2 text-body-sm font-medium rounded-full border border-neutral-300 text-neutral-600 hover:border-brand-green hover:text-brand-green transition-colors data-active:bg-brand-green data-active:text-white data-active:border-brand-green"
+            data-category={cat}
+            onclick="filterGallery(this)"
+          >
+            {categoryLabels[cat]}
+          </button>
+        ))}
+      </div>
+
+      {allGallery.length > 0 ? (
+        <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {allGallery.map((item) => (
+            <div
+              class="gallery-item group bg-white rounded-xl border border-neutral-200 overflow-hidden cursor-pointer"
+              data-category={item.data.category}
+              onclick="openLightbox(this)"
+            >
+              <div class="aspect-square bg-neutral-100 flex items-center justify-center overflow-hidden">
+                {item.data.image ? (
+                  <img src={item.data.image} alt={item.data.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                ) : (
+                  <span class="text-neutral-400">Ilustrasi</span>
+                )}
+              </div>
+              <div class="p-4">
+                <h3 class="text-body-sm font-semibold text-neutral-800">{item.data.title}</h3>
+              </div>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div class="text-center py-16">
+          <p class="text-body text-neutral-500">Belum ada galeri. Silakan kunjungi kembali.</p>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="fixed inset-0 z-50 bg-black/80 hidden items-center justify-center p-4" onclick="closeLightbox(event)">
+    <button class="absolute top-4 right-4 text-white text-heading-3" onclick="closeLightbox(event)">&times;</button>
+    <img id="lightbox-img" class="max-w-full max-h-[90vh] object-contain rounded-lg" src="" alt="" />
+  </div>
+</BaseLayout>
+
+<script lang="ts">
+  function filterGallery(el: HTMLElement) {
+    document.querySelectorAll('[data-category]').forEach((b) => b.classList.remove('bg-brand-green', 'text-white', 'border-brand-green'));
+    el.classList.add('bg-brand-green', 'text-white', 'border-brand-green');
+    const cat = el.dataset.category;
+    document.querySelectorAll('.gallery-item').forEach((item) => {
+      if (cat === 'all' || item.dataset.category === cat) {
+        (item as HTMLElement).style.display = '';
+      } else {
+        (item as HTMLElement).style.display = 'none';
+      }
+    });
+  }
+
+  function openLightbox(el: HTMLElement) {
+    const img = el.querySelector('img');
+    if (!img) return;
+    const lb = document.getElementById('lightbox')!;
+    const lbImg = document.getElementById('lightbox-img') as HTMLImageElement;
+    lbImg.src = img.src;
+    lbImg.alt = img.alt;
+    lb.classList.remove('hidden');
+    lb.classList.add('flex');
+  }
+
+  function closeLightbox(e: MouseEvent) {
+    const target = e.target as HTMLElement;
+    if (target.id === 'lightbox' || target.tagName === 'BUTTON') {
+      const lb = document.getElementById('lightbox')!;
+      lb.classList.add('hidden');
+      lb.classList.remove('flex');
+    }
+  }
+</script>

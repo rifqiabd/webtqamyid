@@ -1,0 +1,93 @@
+@import 'tailwindcss';
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/inter/700.css';
+@import '@fontsource/jetbrains-mono/400.css';
+
+@theme {
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+
+  --color-brand-green: #1a7a4c;
+  --color-brand-green-light: #e8f5ee;
+  --color-brand-green-dark: #0d4d2e;
+  --color-brand-gold: #c8a45c;
+  --color-brand-gold-light: #faf3e4;
+  --color-brand-gold-dark: #8a6e34;
+
+  --color-neutral-50: #fafaf9;
+  --color-neutral-100: #f6f5f4;
+  --color-neutral-200: #ede9e4;
+  --color-neutral-300: #e5e3df;
+  --color-neutral-400: #c8c4be;
+  --color-neutral-500: #a4a097;
+  --color-neutral-600: #787671;
+  --color-neutral-700: #5d5b54;
+  --color-neutral-800: #37352f;
+  --color-neutral-900: #1a1a1a;
+  --color-neutral-950: #0a0a0a;
+
+  --font-size-display-xl: clamp(2.5rem, 5vw, 4rem);
+  --font-size-display-xl--line-height: 1.05;
+  --font-size-display-xl--letter-spacing: -0.02em;
+  --font-size-display-lg: clamp(2rem, 4vw, 3rem);
+  --font-size-display-lg--line-height: 1.1;
+  --font-size-display-lg--letter-spacing: -0.01em;
+  --font-size-heading-1: clamp(1.75rem, 3vw, 2.5rem);
+  --font-size-heading-1--line-height: 1.15;
+  --font-size-heading-1--letter-spacing: -0.005em;
+  --font-size-heading-2: clamp(1.5rem, 2.5vw, 2rem);
+  --font-size-heading-2--line-height: 1.2;
+  --font-size-heading-2--letter-spacing: -0.005em;
+  --font-size-heading-3: clamp(1.25rem, 2vw, 1.5rem);
+  --font-size-heading-3--line-height: 1.25;
+  --font-size-body: 1rem;
+  --font-size-body--line-height: 1.55;
+  --font-size-body-sm: 0.875rem;
+  --font-size-body-sm--line-height: 1.5;
+  --font-size-caption: 0.8125rem;
+  --font-size-caption--line-height: 1.4;
+
+  --spacing: 4px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    color: var(--color-neutral-800);
+    background-color: var(--color-neutral-50);
+    font-family: var(--font-sans);
+    font-size: var(--font-size-body);
+    line-height: var(--font-size-body--line-height);
+  }
+
+  ::selection {
+    background-color: var(--color-brand-green);
+    color: white;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+
+  .hero-padding {
+    @apply py-24 md:py-32;
+  }
+
+  .container-site {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .prose-custom {
+    max-width: 65ch;
+    line-height: 1.55;
+  }
+}

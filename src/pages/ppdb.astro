@@ -1,0 +1,146 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/ui/Button.astro';
+---
+
+<BaseLayout title="PPDB" description="Pendaftaran Peserta Didik Baru Pondok Pesantren Thibbil Qulub Assimbani. Informasi syarat, biaya, dan prosedur pendaftaran.">
+  <section class="hero-padding bg-neutral-950 text-white">
+    <div class="container-site text-center">
+      <p class="text-body-sm font-semibold text-brand-gold uppercase tracking-wider mb-3">PPDB {new Date().getFullYear()}</p>
+      <h1 class="text-display-lg font-semibold mb-6">Pendaftaran Peserta Didik Baru</h1>
+      <p class="text-body text-neutral-400 max-w-2xl mx-auto leading-relaxed">
+        Bergabunglah bersama keluarga besar Pondok Pesantren Thibbil Qulub Assimbani.
+      </p>
+    </div>
+  </section>
+
+  <!-- Requirements -->
+  <section class="section-padding">
+    <div class="container-site max-w-3xl">
+      <h2 class="text-heading-2 font-semibold text-neutral-800 mb-6">Persyaratan Pendaftaran</h2>
+      <div class="bg-white rounded-xl border border-neutral-200 p-8">
+        <ul class="space-y-3">
+          <li class="flex gap-3 text-body text-neutral-600">
+            <span class="text-brand-green flex-shrink-0">•</span>
+            <span>Fotokopi Akta Kelahiran (2 lembar)</span>
+          </li>
+          <li class="flex gap-3 text-body text-neutral-600">
+            <span class="text-brand-green flex-shrink-0">•</span>
+            <span>Fotokopi Kartu Keluarga (2 lembar)</span>
+          </li>
+          <li class="flex gap-3 text-body text-neutral-600">
+            <span class="text-brand-green flex-shrink-0">•</span>
+            <span>Pas foto 3x4 (3 lembar, background merah)</span>
+          </li>
+          <li class="flex gap-3 text-body text-neutral-600">
+            <span class="text-brand-green flex-shrink-0">•</span>
+            <span>Fotokopi Raport / Ijazah terakhir (legalisir)</span>
+          </li>
+          <li class="flex gap-3 text-body text-neutral-600">
+            <span class="text-brand-green flex-shrink-0">•</span>
+            <span>Surat Keterangan Sehat dari dokter</span>
+          </li>
+          <li class="flex gap-3 text-body text-neutral-600">
+            <span class="text-brand-green flex-shrink-0">•</span>
+            <span>Surat Rekomendasi dari sekolah sebelumnya (jika ada)</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="section-padding bg-neutral-100">
+    <div class="container-site max-w-3xl">
+      <h2 class="text-heading-2 font-semibold text-neutral-800 mb-8">Prosedur Pendaftaran</h2>
+      <div class="space-y-6">
+        <div class="flex gap-4">
+          <div class="w-10 h-10 rounded-full bg-brand-green text-white flex items-center justify-center text-body-sm font-bold flex-shrink-0">1</div>
+          <div>
+            <h3 class="text-heading-3 font-semibold text-neutral-800 mb-1">Pengisian Formulir</h3>
+            <p class="text-body text-neutral-600">Calon santri mengisi formulir pendaftaran secara online atau datang langsung ke kantor pendaftaran.</p>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <div class="w-10 h-10 rounded-full bg-brand-green text-white flex items-center justify-center text-body-sm font-bold flex-shrink-0">2</div>
+          <div>
+            <h3 class="text-heading-3 font-semibold text-neutral-800 mb-1">Verifikasi Berkas</h3>
+            <p class="text-body text-neutral-600">Panitia memverifikasi kelengkapan dan keabsahan berkas pendaftaran.</p>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <div class="w-10 h-10 rounded-full bg-brand-green text-white flex items-center justify-center text-body-sm font-bold flex-shrink-0">3</div>
+          <div>
+            <h3 class="text-heading-3 font-semibold text-neutral-800 mb-1">Tes Seleksi</h3>
+            <p class="text-body text-neutral-600">Calon santri mengikuti tes akademik dan wawancara untuk mengetahui potensi dan kesiapan.</p>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <div class="w-10 h-10 rounded-full bg-brand-green text-white flex items-center justify-center text-body-sm font-bold flex-shrink-0">4</div>
+          <div>
+            <h3 class="text-heading-3 font-semibold text-neutral-800 mb-1">Pengumuman</h3>
+            <p class="text-body text-neutral-600">Hasil seleksi diumumkan melalui website dan papan pengumuman resmi.</p>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <div class="w-10 h-10 rounded-full bg-brand-green text-white flex items-center justify-center text-body-sm font-bold flex-shrink-0">5</div>
+          <div>
+            <h3 class="text-heading-3 font-semibold text-neutral-800 mb-1">Daftar Ulang</h3>
+            <p class="text-body text-neutral-600">Calon santri yang diterima melakukan daftar ulang dan pembayaran biaya pendidikan.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fees -->
+  <section class="section-padding">
+    <div class="container-site max-w-3xl">
+      <h2 class="text-heading-2 font-semibold text-neutral-800 mb-8">Biaya Pendidikan</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="border-b-2 border-neutral-300">
+              <th class="text-body-sm font-semibold text-neutral-800 py-3 px-4">Komponen</th>
+              <th class="text-body-sm font-semibold text-neutral-800 py-3 px-4">Pondok Pesantren</th>
+              <th class="text-body-sm font-semibold text-neutral-800 py-3 px-4">MTs</th>
+              <th class="text-body-sm font-semibold text-neutral-800 py-3 px-4">SMK</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-neutral-200">
+              <td class="text-body-sm text-neutral-600 py-3 px-4">Pendaftaran</td>
+              <td class="text-body-sm text-neutral-600 py-3 px-4">Rp 200.000</td>
+              <td class="text-body-sm text-neutral-600 py-3 px-4">Rp 200.000</td>
+              <td class="text-body-sm text-neutral-600 py-3 px-4">Rp 250.000</td>
+            </tr>
+            <tr class="border-b border-neutral-200">
+              <td class="text-body-sm text-neutral-600 py-3 px-4">SPP Bulanan</td>
+              <td class="text-body-sm text-neutral-600 py-3 px-4">Rp 300.000</td>
+              <td class="text-body-sm text-neutral-600 py-3 px-4">Rp 350.000</td>
+              <td class="text-body-sm text-neutral-600 py-3 px-4">Rp 400.000</td>
+            </tr>
+            <tr class="border-b border-neutral-200">
+              <td class="text-body-sm text-neutral-600 py-3 px-4">Kegiatan</td>
+              <td class="text-body-sm text-neutral-600 py-3 px-4">Rp 500.000/thn</td>
+              <td class="text-body-sm text-neutral-600 py-3 px-4">Rp 500.000/thn</td>
+              <td class="text-body-sm text-neutral-600 py-3 px-4">Rp 600.000/thn</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-caption text-neutral-500 mt-4">* Biaya dapat berubah sewaktu-waktu. Hubungi kami untuk informasi terbaru.</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-padding bg-brand-green-dark text-white text-center">
+    <div class="container-site max-w-2xl">
+      <h2 class="text-heading-1 font-semibold mb-4">Siap Mendaftar?</h2>
+      <p class="text-body text-neutral-300 mb-8">Klik tombol di bawah untuk mengisi formulir pendaftaran online.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <Button variant="secondary" size="lg" href="/contact">Hubungi Kami</Button>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

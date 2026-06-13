@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import Badge from '../components/ui/Badge.astro';
+
+const allNews = await getCollection('news', ({ data }) => data.published !== false);
+allNews.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+
+<BaseLayout title="Berita" description="Berita dan informasi terbaru dari Pondok Pesantren Thibbil Qulub Assimbani.">
+  <section class="hero-padding bg-neutral-950 text-white">
+    <div class="container-site text-center">
+      <p class="text-body-sm font-semibold text-brand-gold uppercase tracking-wider mb-3">Berita</p>
+      <h1 class="text-display-lg font-semibold mb-6">Berita & Informasi</h1>
+      <p class="text-body text-neutral-400 max-w-2xl mx-auto leading-relaxed">
+        Ikuti perkembangan terbaru dari lingkungan Pondok Pesantren Thibbil Qulub Assimbani.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container-site">
+      {allNews.length > 0 ? (
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {allNews.map((item) => (
+            <a href={`/news/${item.slug}`} class="group bg-white rounded-xl border border-neutral-200 overflow-hidden no-underline hover:border-brand-green transition-colors">
+              <div class="h-48 bg-neutral-100 flex items-center justify-center">
+                {item.data.image ? (
+                  <img src={item.data.image} alt={item.data.title} class="w-full h-full object-cover" />
+                ) : (
+                  <span class="text-neutral-400">Ilustrasi</span>
+                )}
+              </div>
+              <div class="p-5">
+                <div class="flex items-center gap-2 mb-2">
+                  <Badge variant="green">{item.data.tags[0] ?? 'Berita'}</Badge>
+                  <span class="text-caption text-neutral-500">
+                    {item.data.date.toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' })}
+                  </span>
+                </div>
+                <h3 class="text-heading-3 font-semibold text-neutral-800 mb-2 group-hover:text-brand-green transition-colors">
+                  {item.data.title}
+                </h3>
+                <p class="text-body-sm text-neutral-600 leading-relaxed">{item.data.description}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      ) : (
+        <div class="text-center py-16">
+          <p class="text-body text-neutral-500">Belum ada berita. Silakan kunjungi kembali.</p>
+        </div>
+      )}
+    </div>
+  </section>
+</BaseLayout>

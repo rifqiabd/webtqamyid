@@ -1,0 +1,18 @@
+---
+export interface Props {
+  variant?: 'green' | 'gold' | 'neutral';
+  class?: string;
+}
+
+const { variant = 'green', class: className } = Astro.props;
+
+const variants: Record<string, string> = {
+  green: 'bg-brand-green-light text-brand-green-dark',
+  gold: 'bg-brand-gold-light text-brand-gold-dark',
+  neutral: 'bg-neutral-100 text-neutral-700',
+};
+---
+
+<span class={`inline-flex items-center text-caption font-semibold px-2.5 py-1 rounded-full ${variants[variant]} ${className ?? ''}`}>
+  <slot />
+</span>

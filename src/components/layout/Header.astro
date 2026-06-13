@@ -1,0 +1,60 @@
+---
+import { SITE } from '../../config';
+---
+
+<header class="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-md border-b border-neutral-200">
+  <nav class="container-site flex items-center justify-between h-16">
+    <a href="/" class="flex items-center gap-2 no-underline">
+      <span class="text-heading-2 font-semibold text-brand-green">{SITE.shortName}</span>
+    </a>
+
+    <div class="hidden md:flex items-center gap-8">
+      <a href="/" class="text-body-sm text-neutral-700 hover:text-neutral-900 no-underline transition-colors">Beranda</a>
+      <a href="/about" class="text-body-sm text-neutral-700 hover:text-neutral-900 no-underline transition-colors">Tentang</a>
+      <a href="/education" class="text-body-sm text-neutral-700 hover:text-neutral-900 no-underline transition-colors">Pendidikan</a>
+      <a href="/programs" class="text-body-sm text-neutral-700 hover:text-neutral-900 no-underline transition-colors">Program</a>
+      <a href="/news" class="text-body-sm text-neutral-700 hover:text-neutral-900 no-underline transition-colors">Berita</a>
+      <a href="/gallery" class="text-body-sm text-neutral-700 hover:text-neutral-900 no-underline transition-colors">Galeri</a>
+      <a href="/contact" class="text-body-sm text-neutral-700 hover:text-neutral-900 no-underline transition-colors">Kontak</a>
+    </div>
+
+    <div class="flex items-center gap-3">
+      <a
+        href="/ppdb"
+        class="hidden sm:inline-flex items-center text-body-sm font-medium text-white bg-brand-green hover:bg-brand-green-dark px-5 py-2 rounded-lg no-underline transition-colors"
+      >
+        PPDB {new Date().getFullYear()}
+      </a>
+      <button id="mobile-menu-toggle" class="md:hidden flex items-center justify-center w-10 h-10 text-neutral-700" aria-label="Toggle menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 12h18M3 6h18M3 18h18" />
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <div id="mobile-menu" class="hidden md:hidden border-t border-neutral-200 bg-white">
+    <div class="container-site py-4 flex flex-col gap-3">
+      <a href="/" class="text-body text-neutral-700 no-underline py-2">Beranda</a>
+      <a href="/about" class="text-body text-neutral-700 no-underline py-2">Tentang</a>
+      <a href="/education" class="text-body text-neutral-700 no-underline py-2">Pendidikan</a>
+      <a href="/programs" class="text-body text-neutral-700 no-underline py-2">Program</a>
+      <a href="/news" class="text-body text-neutral-700 no-underline py-2">Berita</a>
+      <a href="/gallery" class="text-body text-neutral-700 no-underline py-2">Galeri</a>
+      <a href="/contact" class="text-body text-neutral-700 no-underline py-2">Kontak</a>
+      <a href="/ppdb" class="text-body-sm font-medium text-white bg-brand-green hover:bg-brand-green-dark px-5 py-2.5 rounded-lg no-underline text-center transition-colors">
+        PPDB {new Date().getFullYear()}
+      </a>
+    </div>
+  </div>
+</header>
+
+<script lang="ts">
+  const toggle = document.getElementById('mobile-menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+  }
+</script>
