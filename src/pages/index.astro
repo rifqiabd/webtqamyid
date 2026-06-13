@@ -5,8 +5,10 @@ import Button from '../components/ui/Button.astro';
 
 <BaseLayout title="Beranda" description="Pondok Pesantren Thibbil Qulub Assimbani — Lembaga pendidikan Islam modern yang mencetak generasi religius, cinta sholawat, berkualitas, dan santun.">
   <!-- Hero -->
-  <section class="hero-padding bg-gradient-to-b from-brand-green-dark to-neutral-950 text-white">
-    <div class="container-site text-center">
+  <section class="hero-padding bg-neutral-950 text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-25 bg-cover bg-center" style="background-image: url('https://picsum.photos/seed/hero/1600/900')" />
+    <div class="absolute inset-0 bg-gradient-to-b from-brand-green-dark/80 to-neutral-950/90" />
+    <div class="container-site text-center relative z-10">
       <h1 class="text-display-xl font-semibold mb-6 text-balance">
         Membentuk Generasi<br />
         <span class="text-brand-gold">Berilmu, Beriman, Berkarakter</span>
@@ -79,20 +81,29 @@ import Button from '../components/ui/Button.astro';
         Tiga unit pendidikan dalam satu naungan pondok pesantren.
       </p>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <a href="/education/pondok-pesantren" class="group bg-white rounded-xl p-8 border border-neutral-200 no-underline hover:border-brand-green transition-colors">
-          <h3 class="text-heading-3 font-semibold text-neutral-800 mb-3 group-hover:text-brand-green transition-colors">Pondok Pesantren</h3>
-          <p class="text-body-sm text-neutral-600 leading-relaxed mb-4">Pendidikan kepesantrenan dengan fokus pada tahfidz, kajian kitab, dan pembentukan karakter islami.</p>
-          <span class="text-body-sm font-medium text-brand-green">Selengkapnya →</span>
+        <a href="/education/pondok-pesantren" class="group bg-white rounded-xl border border-neutral-200 no-underline hover:border-brand-green transition-colors overflow-hidden">
+          <img src="https://picsum.photos/seed/pondok/600/300" alt="Pondok Pesantren" class="w-full h-48 object-cover" loading="lazy" />
+          <div class="p-8">
+            <h3 class="text-heading-3 font-semibold text-neutral-800 mb-3 group-hover:text-brand-green transition-colors">Pondok Pesantren</h3>
+            <p class="text-body-sm text-neutral-600 leading-relaxed mb-4">Pendidikan kepesantrenan dengan fokus pada tahfidz, kajian kitab, dan pembentukan karakter islami.</p>
+            <span class="text-body-sm font-medium text-brand-green">Selengkapnya →</span>
+          </div>
         </a>
-        <a href="/education/mts" class="group bg-white rounded-xl p-8 border border-neutral-200 no-underline hover:border-brand-green transition-colors">
-          <h3 class="text-heading-3 font-semibold text-neutral-800 mb-3 group-hover:text-brand-green transition-colors">MTs Thibbil Qulub</h3>
-          <p class="text-body-sm text-neutral-600 leading-relaxed mb-4">Madrasah Tsanawiyah dengan kurikulum integratif agama dan sains untuk generasi muda islami.</p>
-          <span class="text-body-sm font-medium text-brand-green">Selengkapnya →</span>
+        <a href="/education/mts" class="group bg-white rounded-xl border border-neutral-200 no-underline hover:border-brand-green transition-colors overflow-hidden">
+          <img src="https://picsum.photos/seed/mts/600/300" alt="MTs Thibbil Qulub" class="w-full h-48 object-cover" loading="lazy" />
+          <div class="p-8">
+            <h3 class="text-heading-3 font-semibold text-neutral-800 mb-3 group-hover:text-brand-green transition-colors">MTs Thibbil Qulub</h3>
+            <p class="text-body-sm text-neutral-600 leading-relaxed mb-4">Madrasah Tsanawiyah dengan kurikulum integratif agama dan sains untuk generasi muda islami.</p>
+            <span class="text-body-sm font-medium text-brand-green">Selengkapnya →</span>
+          </div>
         </a>
-        <a href="/education/smk" class="group bg-white rounded-xl p-8 border border-neutral-200 no-underline hover:border-brand-green transition-colors">
-          <h3 class="text-heading-3 font-semibold text-neutral-800 mb-3 group-hover:text-brand-green transition-colors">SMK Thibbil Qulub</h3>
-          <p class="text-body-sm text-neutral-600 leading-relaxed mb-4">Sekolah Menengah Kejuruan dengan kompetensi teknologi informasi dan keterampilan abad 21.</p>
-          <span class="text-body-sm font-medium text-brand-green">Selengkapnya →</span>
+        <a href="/education/smk" class="group bg-white rounded-xl border border-neutral-200 no-underline hover:border-brand-green transition-colors overflow-hidden">
+          <img src="https://picsum.photos/seed/smk/600/300" alt="SMK Thibbil Qulub" class="w-full h-48 object-cover" loading="lazy" />
+          <div class="p-8">
+            <h3 class="text-heading-3 font-semibold text-neutral-800 mb-3 group-hover:text-brand-green transition-colors">SMK Thibbil Qulub</h3>
+            <p class="text-body-sm text-neutral-600 leading-relaxed mb-4">Sekolah Menengah Kejuruan dengan kompetensi teknologi informasi dan keterampilan abad 21.</p>
+            <span class="text-body-sm font-medium text-brand-green">Selengkapnya →</span>
+          </div>
         </a>
       </div>
     </div>

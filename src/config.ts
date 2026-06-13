@@ -6,7 +6,7 @@ export const SITE = {
   url: 'https://thibbilqulub.sch.id',
   locale: 'id_ID',
   lang: 'id',
-  ogImage: '/images/og-default.jpg',
+  ogImage: 'https://picsum.photos/seed/thibbilqulub/1200/630',
   author: 'Pondok Pesantren Thibbil Qulub Assimbani',
   social: {
     whatsapp: 'https://wa.me/6281234567890',
